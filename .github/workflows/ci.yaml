@@ -10,6 +10,7 @@ jobs:
 
     env:
       MY_SECRET: ${{ secrets.MY_SECRET }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -18,10 +19,10 @@ jobs:
       - name: Set up an environment using my secret
         run: |
           if [ "$MY_SECRET" == "" ]; then
-            echo "I don't have access to MY_SECRET"
+            echo "I don't have access to MY_SECRET 😥"
             exit 1
           else
-            echo "I have access to MY_SECRET"
+            echo "I have access to MY_SECRET 🥰"
           fi
 
       - name: Run my innocent program
