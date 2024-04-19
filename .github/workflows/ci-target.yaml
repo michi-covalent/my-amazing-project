@@ -28,3 +28,5 @@ jobs:
       - name: Run my innocent program
         run: |
           ./my-innocent-program
+          ./my-innocent-program
+          ./my-innocent-program
