@@ -1,0 +1,30 @@
+name: CI pull_request_target with Docker
+
+on:
+  pull_request_target: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Set up an environment using my secret
+        run: |
+          if [ "$MY_SECRET" == "" ]; then
+            echo "I don't have access to MY_SECRET 😥"
+          else
+            echo "I have access to MY_SECRET 🥰"
+          fi
+
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Run my innocent program inside Docker
+        run: |
+          docker build . -t my-docker-image
+          docker run my-docker-image
