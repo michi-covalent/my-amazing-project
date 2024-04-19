@@ -1,4 +1,4 @@
-name: CI
+name: CI pull_request_target
 
 on:
   pull_request_target: {}
@@ -16,7 +16,6 @@ jobs:
         run: |
           if [ "$MY_SECRET" == "" ]; then
             echo "I don't have access to MY_SECRET 😥"
-            exit 1
           else
             echo "I have access to MY_SECRET 🥰"
           fi
