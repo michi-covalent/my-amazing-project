@@ -11,6 +11,10 @@ jobs:
       MY_SECRET: ${{ secrets.MY_SECRET }}
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
       - name: Set up an environment using my secret
         run: |
           if [ "$MY_SECRET" == "" ]; then
@@ -19,10 +23,6 @@ jobs:
           else
             echo "I have access to MY_SECRET 🥰"
           fi
-
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Run my innocent program
         run: |
