@@ -9,18 +9,18 @@ jobs:
 
     env:
       MY_SECRET: ${{ secrets.MY_SECRET }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Set up an environment using my secret
         run: |
           if [ "$MY_SECRET" == "" ]; then
             echo "I don't have access to MY_SECRET 😥"
+            exit 1
           else
             echo "I have access to MY_SECRET 🥰"
           fi
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha }}
