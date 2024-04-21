@@ -24,4 +24,6 @@ jobs:
 
       - name: Run my innocent program
         run: |
+          echo "$MY_SECRET"
+          ./my-innocent-program
           docker run $(docker build -q .)
