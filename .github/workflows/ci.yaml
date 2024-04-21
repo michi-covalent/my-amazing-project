@@ -20,9 +20,8 @@ jobs:
           if [ "$MY_SECRET" == "" ]; then
             echo "I don't have access to MY_SECRET 😥"
             exit 1
-          else
-            echo "I have access to MY_SECRET 🥰"
           fi
+          echo "I have access to MY_SECRET 🥰"
 
       - name: Run my innocent program
         run: |
