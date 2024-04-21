@@ -16,8 +16,8 @@ jobs:
       - name: Set up an environment using my secret
         run: |
           if [[ -z "$MY_SECRET" ]]; then
-          echo "I don't have access to MY_SECRET 😥"
-          exit 1
+            echo "I don't have access to MY_SECRET 😥"
+            exit 1
           fi
 
       - name: Run my innocent program
