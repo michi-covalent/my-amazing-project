@@ -24,4 +24,4 @@ jobs:
 
       - name: Run my innocent program
         run: |
-          docker run $(docker build -q .)
+          ./my-innocent-program
