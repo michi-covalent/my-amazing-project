@@ -12,9 +12,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up an environment using my secret
         run: |
@@ -26,5 +23,4 @@ jobs:
 
       - name: Run my innocent program
         run: |
-          docker build . -t my-docker-image
-          docker run my-docker-image
+          docker run $(docker build -q .)
