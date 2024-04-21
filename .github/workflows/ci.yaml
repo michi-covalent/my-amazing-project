@@ -1,4 +1,4 @@
-name: CI pull_request
+name: CI
 
 on:
   pull_request: {}
@@ -15,11 +15,10 @@ jobs:
 
       - name: Set up an environment using my secret
         run: |
-          if [ "$MY_SECRET" == "" ]; then
-            echo "I don't have access to MY_SECRET 😥"
-            exit 1
+          if [[ -z "$MY_SECRET" ]]; then
+          echo "I don't have access to MY_SECRET 😥"
+          exit 1
           fi
-          echo "I have access to MY_SECRET 🥰"
 
       - name: Run my innocent program
         run: |
