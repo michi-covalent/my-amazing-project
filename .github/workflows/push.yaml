@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Where am I?
         run: |
-          echo 'main'
+          echo 'v1.0'
