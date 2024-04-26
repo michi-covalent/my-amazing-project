@@ -1,0 +1,16 @@
+name: push
+
+on:
+  push:
+    branches:
+      - main
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Where am I?
+        run: |
+          echo 'main'
