@@ -24,7 +24,10 @@ jobs:
             tag=${{ inputs.tag }}
             tag=${tag##*/}-fips
           else
+            echo "MICHI"
             echo ${GITHUB_REF}
+            echo "MICHI 2"
             echo ${GITHUB_REF##*/}
+            echo "MICHI 3"
             tag=${GITHUB_REF##*/}-fips
           fi
