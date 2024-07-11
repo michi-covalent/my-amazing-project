@@ -20,7 +20,8 @@ jobs:
       - name: Getting image tag
         id: tag
         run: |
-          if [ ${{ github.event_name == 'workflow_dispatch' }} ]; then
+          echo "${{ github.event_name }}"
+          if [ "${{ github.event_name }}" == 'workflow_dispatch' }} ]; then
             tag=${{ inputs.tag }}
             tag=${tag##*/}-fips
           else
