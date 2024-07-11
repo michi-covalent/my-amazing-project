@@ -21,7 +21,7 @@ jobs:
         id: tag
         run: |
           echo "${{ github.event_name }}"
-          if [ "${{ github.event_name }}" == 'workflow_dispatch' }} ]; then
+          if [[ "${{ github.event_name }}" == 'workflow_dispatch' ]]; then
             tag=${{ inputs.tag }}
             tag=${tag##*/}-fips
           else
