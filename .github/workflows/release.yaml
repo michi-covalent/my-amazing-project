@@ -27,6 +27,6 @@ jobs:
           files: |
             my-innocent-program
           body: |
-            \# ${{ steps.tag.outputs.tag }} release
+            # ${{ steps.tag.outputs.tag }} release
 
             Hello ${{ steps.tag.outputs.tag }}.
