@@ -17,9 +17,9 @@ jobs:
         id: tag
         run: |
           tag=${GITHUB_REF##*/}
-          another-tag=$(echo $tag | cut -d "-" -f 1)
+          another_tag=$(echo $tag | cut -d "-" -f 1)
           echo "tag=$tag" >> $GITHUB_OUTPUT
-          echo "another-tag=$another-tag" >> $GITHUB_OUTPUT
+          echo "another-tag=$another_tag" >> $GITHUB_OUTPUT
 
       - name: Create a Release
         uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2
