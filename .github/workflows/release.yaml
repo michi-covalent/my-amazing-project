@@ -34,4 +34,4 @@ jobs:
 
             Hello ${{ steps.tag.outputs.tag }}.
 
-            Hello ${{ steps.tag.outputs.anothertag }}.
+            Hello ${{ steps.tag.outputs.another-tag }}.
