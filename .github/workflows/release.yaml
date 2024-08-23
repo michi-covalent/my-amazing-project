@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-      - 'hello/michi/v[0-9]+.[0-9]+.[0-9]+'
+      - 'hello/michi/v[0-9]+.[0-9]+.[0-9]+-hello'
 
 name: release test
 
@@ -16,7 +16,10 @@ jobs:
       - name: Get image tag
         id: tag
         run: |
-          echo "tag=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+          tag=${GITHUB_REF##*/}
+          another-tag=$(echo $tag | cut -d "-" -f 1)
+          echo "tag=$tag" >> $GITHUB_OUTPUT
+          echo "another-tag=$another-tag" >> $GITHUB_OUTPUT
 
       - name: Create a Release
         uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2
@@ -30,3 +33,5 @@ jobs:
             # ${{ steps.tag.outputs.tag }} release
 
             Hello ${{ steps.tag.outputs.tag }}.
+
+            Hello ${{ steps.tag.outputs.anothertag }}.
